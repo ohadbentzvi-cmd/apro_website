@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="https://via.placeholder.com/32x32/A4D65E/FFFFFF?text=A" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta
+      name="description"
+      content="APRO - ניהול נכסים מתקדם בסטנדרט חדש"
+    />
+    <title>APRO | ניהול נכסים חכם</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Assistant -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@200;300;400;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Google Maps Places API -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD90V6zelDgt1nLhCIBH-2XUbLyrwcJnm0&libraries=places&language=he&region=IL"></script>
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Assistant', 'sans-serif'],
+            },
+            colors: {
+              brand: {
+                lime: '#A4D65E',
+                forest: '#2E5936',
+                gray: '#F8F9FA',
+                dark: '#1A1A1A',
+              }
+            },
+            backgroundImage: {
+              'noise': "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.15'/%3E%3C/svg%3E\")",
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      body {
+        margin: 0;
+        font-family: 'Assistant', sans-serif;
+        background-color: #FAFAFA;
+      }
+      /* Custom scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #f1f1f1; 
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #ccc; 
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #A4D65E; 
+      }
+
+      /* Google Places Autocomplete Custom Styling */
+      .pac-container {
+        border-radius: 12px;
+        margin-top: 8px;
+        box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1);
+        border: 1px solid #f3f4f6;
+        font-family: 'Assistant', sans-serif;
+        padding-top: 4px;
+        padding-bottom: 4px;
+        z-index: 9999;
+      }
+      .pac-item {
+        padding: 14px 18px;
+        font-size: 16px;
+        cursor: pointer;
+        display: flex;
+        flex-direction: row; /* Standard flow, dir="rtl" handles the rest */
+        align-items: center;
+        text-align: right;
+        border-top: none;
+        gap: 6px; /* Adds the missing whitespace between elements */
+      }
+      .pac-item:hover {
+        background-color: #f9fafb;
+      }
+      .pac-item-query {
+        font-size: 16px;
+        color: #1a1a1a;
+        font-weight: 600;
+        margin-left: 4px; /* Secondary fallback for spacing in RTL */
+      }
+      .pac-item span:not(.pac-item-query):not(.pac-icon) {
+        color: #71717a;
+        font-size: 14px;
+      }
+      .pac-icon {
+        display: none; /* Hide default pin to keep it minimal */
+      }
+      .pac-logo:after {
+        display: none; /* Hide 'Powered by Google' to keep clean, though technically required by TOS sometimes */
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.4",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "lucide-react": "https://esm.sh/lucide-react@^0.563.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
