@@ -183,8 +183,8 @@ const OnboardingWizard: React.FC<OnboardingWizardProps> = ({ onBack }) => {
       type="button"
       onClick={onClick}
       className={`px-4 py-2 rounded-full text-sm font-semibold transition-all border whitespace-nowrap ${active
-          ? 'bg-brand-lime border-brand-lime text-white shadow-md shadow-brand-lime/20'
-          : 'bg-white border-gray-200 text-gray-500 hover:border-brand-lime/30'
+        ? 'bg-brand-lime border-brand-lime text-white shadow-md shadow-brand-lime/20'
+        : 'bg-white border-gray-200 text-gray-500 hover:border-brand-lime/30'
         }`}
     >
       {label}
@@ -237,18 +237,11 @@ const OnboardingWizard: React.FC<OnboardingWizardProps> = ({ onBack }) => {
           <Home className="w-4 h-4" />
           <span>חזרה למסך הבית</span>
         </button>
-        <button onClick={onBack} className="flex items-center gap-2 group transition-all hover:opacity-80">
-          <div className="w-8 h-8 relative shadow-sm">
-            <svg viewBox="0 0 100 100" className="w-full h-full">
-              <path d="M50 0 L93.3 25 V75 L50 100 L6.7 75 V25 Z" fill="#A4D65E" />
-            </svg>
-            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-              <svg viewBox="0 0 24 24" className="w-4 h-4 text-white fill-current">
-                <path d="M12 3 L4 10 V21 H9 V14 H15 V21 H20 V10 L12 3 Z" />
-              </svg>
-            </div>
+        <button onClick={onBack} className="flex items-center gap-1 group transition-all hover:opacity-80">
+          <div className="relative w-10 h-10">
+            <img src="/logo.svg" alt="APRO Logo" className="w-full h-full object-contain" />
           </div>
-          <span className="text-xl font-extrabold tracking-tight text-[#1A202C]">APRO</span>
+          <img src="/company_name.png" alt="Apro Company Name" className="h-8 object-contain" />
         </button>
       </nav>
 

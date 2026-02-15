@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Footer: React.FC = () => {
   return (
@@ -25,10 +26,10 @@ const Footer: React.FC = () => {
           <div>
             <h4 className="font-bold text-lg mb-4 text-gray-100">ניווט מהיר</h4>
             <ul className="space-y-2">
-              <li><a href="#" className="text-gray-400 hover:text-brand-lime transition-colors">עמוד הבית</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-brand-lime transition-colors">אודות החברה</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-brand-lime transition-colors">השירותים שלנו</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-brand-lime transition-colors">שאלות ותשובות</a></li>
+              <li><Link to="/" className="text-gray-400 hover:text-brand-lime transition-colors">עמוד הבית</Link></li>
+              <li><Link to="/" className="text-gray-400 hover:text-brand-lime transition-colors">אודות החברה</Link></li>
+              <li><Link to="/" className="text-gray-400 hover:text-brand-lime transition-colors">השירותים שלנו</Link></li>
+              <li><Link to="/" className="text-gray-400 hover:text-brand-lime transition-colors">שאלות ותשובות</Link></li>
             </ul>
           </div>
 
@@ -36,10 +37,8 @@ const Footer: React.FC = () => {
           <div>
             <h4 className="font-bold text-lg mb-4 text-gray-100">שירותים</h4>
             <ul className="space-y-2">
-              <li><a href="#" className="text-gray-400 hover:text-brand-lime transition-colors">ניהול בנייני מגורים</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-brand-lime transition-colors">ניהול נכסים מסחריים</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-brand-lime transition-colors">אחזקה מונעת</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-brand-lime transition-colors">ייעוץ משפטי</a></li>
+              <li><Link to="/residential" className="text-gray-400 hover:text-brand-lime transition-colors">ניהול בנייני מגורים</Link></li>
+              <li><Link to="/commercial" className="text-gray-400 hover:text-brand-lime transition-colors">ניהול נכסים מסחריים</Link></li>
             </ul>
           </div>
 
@@ -48,13 +47,13 @@ const Footer: React.FC = () => {
             <h4 className="font-bold text-lg mb-4 text-gray-100">צרו קשר</h4>
             <ul className="space-y-2 text-gray-400">
               <li className="flex items-center gap-2">
-                <span>רוטשילד 45, תל אביב</span>
+                <span>חברון 8, תל אביב</span>
               </li>
               <li className="flex items-center gap-2">
-                <span dir="ltr">+972 3-555-1234</span>
+                <span dir="ltr">055-5535891</span>
               </li>
               <li>
-                <a href="mailto:contact@apro.co.il" className="hover:text-brand-lime transition-colors">contact@apro.co.il</a>
+                <a href="mailto:office@apro.co.il" className="hover:text-brand-lime transition-colors">office@apro.co.il</a>
               </li>
             </ul>
           </div>
