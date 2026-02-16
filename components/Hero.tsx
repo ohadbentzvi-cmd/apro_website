@@ -29,9 +29,13 @@ const Hero: React.FC<HeroProps> = ({ onStart }) => {
           </div>
 
           {/* High-Authority Headline */}
-          <h1 className="text-[2.5rem] sm:text-[3.5rem] md:text-[4.5rem] lg:text-[5.5rem] font-[800] text-[#1A1A1B] leading-[1.1] tracking-tight mb-16 font-sans selection:bg-brand-lime selection:text-white">
-            הסטנדרט הטכנולוגי של ההייטק מגיע לניהול הנכסים
+          <h1 className="text-[2.5rem] sm:text-[3.5rem] md:text-[4.5rem] lg:text-[5.5rem] font-[800] text-[#1A1A1B] leading-[1.1] tracking-tight mb-8 font-sans selection:bg-brand-lime selection:text-white">
+            ניהול מבנים בסטנדרט אחר
           </h1>
+
+          <div className="text-xl md:text-2xl text-gray-600 mb-12 ml-auto max-w-3xl leading-relaxed">
+            <p className=" text-[#1A1A1B] mb-2">דיוק של הייטק. שקט של בית.</p>
+          </div>
 
           {/* CTA Container: Lean Glassmorphism "Magnifying Glass" Style */}
           <div className="inline-flex flex-col sm:flex-row gap-4 p-2.5 rounded-3xl animate-in fade-in slide-in-from-bottom-6 duration-1000 delay-300">

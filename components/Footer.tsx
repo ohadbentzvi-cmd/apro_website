@@ -18,7 +18,7 @@ const Footer: React.FC = () => {
               </span>
             </div>
             <p className="text-gray-400 text-sm leading-relaxed mb-6">
-              שירותי ניהול נכסים המשלבים טכנולוגיה מתקדמת עם שירות אישי. הסטנדרט החדש של תל אביב.
+              שירותי ניהול נכסים המשלבים טכנולוגיה מתקדמת עם שירות אישי.
             </p>
           </div>
 
@@ -27,9 +27,6 @@ const Footer: React.FC = () => {
             <h4 className="font-bold text-lg mb-4 text-gray-100">ניווט מהיר</h4>
             <ul className="space-y-2">
               <li><Link to="/" className="text-gray-400 hover:text-brand-lime transition-colors">עמוד הבית</Link></li>
-              <li><Link to="/" className="text-gray-400 hover:text-brand-lime transition-colors">אודות החברה</Link></li>
-              <li><Link to="/" className="text-gray-400 hover:text-brand-lime transition-colors">השירותים שלנו</Link></li>
-              <li><Link to="/" className="text-gray-400 hover:text-brand-lime transition-colors">שאלות ותשובות</Link></li>
             </ul>
           </div>
 
@@ -61,7 +58,7 @@ const Footer: React.FC = () => {
         </div>
 
         <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
-          <p>© 2024 APRO. כל הזכויות שמורות.</p>
+          <p>© 2026 APRO. כל הזכויות שמורות.</p>
           <div className="flex gap-6 mt-4 md:mt-0">
             <a href="#" className="hover:text-white transition-colors">תנאי שימוש</a>
             <a href="#" className="hover:text-white transition-colors">מדיניות פרטיות</a>

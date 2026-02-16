@@ -23,7 +23,6 @@ const Header: React.FC = () => {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex gap-10 items-center">
-          <a href="#" className="text-gray-600 hover:text-brand-lime transition-colors text-base font-medium">אודות</a>
 
           {/* Services Dropdown */}
           <div className="relative group">
@@ -49,7 +48,6 @@ const Header: React.FC = () => {
             </div>
           </div>
 
-          <a href="#" className="text-gray-600 hover:text-brand-lime transition-colors text-base font-medium">לקוחות</a>
 
           <button className="px-6 py-2.5 border border-brand-lime text-brand-forest font-semibold rounded-lg bg-transparent hover:bg-brand-lime hover:text-white transition-all duration-300">
             כניסה לדיירים
