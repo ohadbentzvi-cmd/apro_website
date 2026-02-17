@@ -272,7 +272,7 @@ const OnboardingWizard: React.FC<OnboardingWizardProps> = ({ onBack }) => {
           <div className="relative w-10 h-10">
             <img src="/logo.svg" alt="APRO Logo" className="w-full h-full object-contain" />
           </div>
-          <img src="/company_name.png" alt="Apro Company Name" className="h-8 object-contain" />
+          <img src="/company_name_optimized.webp" alt="Apro Company Name" className="h-8 object-contain" />
         </button>
       </nav>
 
