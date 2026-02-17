@@ -10,10 +10,60 @@ interface OnboardingWizardProps {
 }
 
 
+
+// Reusable sub-components defined outside to prevent re-renders losing focus
+const Chip = ({ label, active, onClick }: { label: string, active: boolean, onClick: () => void }) => (
+  <button
+    type="button"
+    onClick={onClick}
+    className={`px-4 py-2 rounded-full text-sm font-semibold transition-all border whitespace-nowrap ${active
+      ? 'bg-brand-lime border-brand-lime text-white shadow-md shadow-brand-lime/20'
+      : 'bg-white border-gray-200 text-gray-500 hover:border-brand-lime/30'
+      }`}
+  >
+    {label}
+  </button>
+);
+
+const Stepper = ({ label, value, onAdd, onSub, onChange, onBlur }: { label: string, value: any, onAdd: () => void, onSub: () => void, onChange: (val: string) => void, onBlur: () => void }) => (
+  <div className="flex items-center justify-between p-4 bg-gray-50/50 rounded-xl border border-gray-100 transition-all focus-within:border-brand-lime/50 focus-within:bg-white focus-within:shadow-sm">
+    <span className="text-gray-700 font-bold">{label}</span>
+    <div className="flex items-center gap-4">
+      <button type="button" onClick={onSub} className="w-8 h-8 flex items-center justify-center rounded-full bg-white border border-gray-200 text-gray-400 hover:text-brand-lime hover:border-brand-lime transition-all"><Minus size={16} /></button>
+      <input
+        type="text"
+        inputMode="numeric"
+        pattern="[0-9]*"
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+        onFocus={(e) => e.target.select()}
+        onBlur={onBlur}
+        className="w-12 text-center font-extrabold text-lg text-gray-900 bg-transparent border-b-2 border-transparent focus:border-brand-lime focus:outline-none transition-all pb-0.5"
+        placeholder="1"
+      />
+      <button type="button" onClick={onAdd} className="w-8 h-8 flex items-center justify-center rounded-full bg-white border border-gray-200 text-gray-400 hover:text-brand-lime hover:border-brand-lime transition-all"><Plus size={16} /></button>
+    </div>
+  </div>
+);
+
+const Toggle = ({ label, active, onChange }: { label: string, active: boolean, onChange: (val: boolean) => void }) => (
+  <div className="flex items-center justify-between p-4 bg-gray-50/50 rounded-xl border border-gray-100">
+    <span className="text-gray-700 font-bold">{label}</span>
+    <button
+      type="button"
+      onClick={() => onChange(!active)}
+      className={`relative w-12 h-6 rounded-full transition-colors duration-300 ${active ? 'bg-brand-lime' : 'bg-gray-200'}`}
+    >
+      <div className={`absolute top-1 left-1 w-4 h-4 bg-white rounded-full transition-transform duration-300 ${active ? 'translate-x-6' : 'translate-x-0'}`}></div>
+    </button>
+  </div>
+);
+
 const OnboardingWizard: React.FC<OnboardingWizardProps> = ({ onBack }) => {
   const [step, setStep] = useState<Step>('ADDRESS');
   const [loading, setLoading] = useState(false);
   const [isValidAddress, setIsValidAddress] = useState(false);
+  const [phoneError, setPhoneError] = useState('');
   const [formData, setFormData] = useState<any>({
     address: '',
     fullName: '',
@@ -85,8 +135,28 @@ const OnboardingWizard: React.FC<OnboardingWizardProps> = ({ onBack }) => {
     }
   };
 
+  const validateIsraeliPhone = (phone: string) => {
+    let cleanPhone = phone.replace(/\D/g, '');
+    if (cleanPhone.startsWith('972')) {
+      cleanPhone = '0' + cleanPhone.substring(3);
+    }
+    if (!cleanPhone.startsWith('0')) return false;
+    if (cleanPhone.length === 10) {
+      return ['05', '07'].includes(cleanPhone.substring(0, 2));
+    } else if (cleanPhone.length === 9) {
+      return ['02', '03', '04', '08', '09'].includes(cleanPhone.substring(0, 2));
+    }
+    return false;
+  };
+
   const handleInitialSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (!validateIsraeliPhone(formData.phone)) {
+      setPhoneError('מספר טלפון לא תקין');
+      return;
+    }
+    setPhoneError('');
     setLoading(true);
 
     const payload = {
@@ -177,54 +247,7 @@ const OnboardingWizard: React.FC<OnboardingWizardProps> = ({ onBack }) => {
   const progress = step === 'ADDRESS' ? 25 : step === 'CONTACT' ? 50 : step === 'TECHNICAL_AUDIT' ? 75 : 100;
 
 
-  // Reusable sub-components
-  const Chip = ({ label, active, onClick }: { label: string, active: boolean, onClick: () => void }) => (
-    <button
-      type="button"
-      onClick={onClick}
-      className={`px-4 py-2 rounded-full text-sm font-semibold transition-all border whitespace-nowrap ${active
-        ? 'bg-brand-lime border-brand-lime text-white shadow-md shadow-brand-lime/20'
-        : 'bg-white border-gray-200 text-gray-500 hover:border-brand-lime/30'
-        }`}
-    >
-      {label}
-    </button>
-  );
 
-
-  const Stepper = ({ label, value, onAdd, onSub, onChange, onBlur }: { label: string, value: any, onAdd: () => void, onSub: () => void, onChange: (val: string) => void, onBlur: () => void }) => (
-    <div className="flex items-center justify-between p-4 bg-gray-50/50 rounded-xl border border-gray-100 transition-all focus-within:border-brand-lime/50 focus-within:bg-white focus-within:shadow-sm">
-      <span className="text-gray-700 font-bold">{label}</span>
-      <div className="flex items-center gap-4">
-        <button type="button" onClick={onSub} className="w-8 h-8 flex items-center justify-center rounded-full bg-white border border-gray-200 text-gray-400 hover:text-brand-lime hover:border-brand-lime transition-all"><Minus size={16} /></button>
-        <input
-          type="text"
-          inputMode="numeric"
-          pattern="[0-9]*"
-          value={value}
-          onChange={(e) => onChange(e.target.value)}
-          onBlur={onBlur}
-          className="w-12 text-center font-extrabold text-lg text-gray-900 bg-transparent border-b-2 border-transparent focus:border-brand-lime focus:outline-none transition-all pb-0.5"
-          placeholder="1"
-        />
-        <button type="button" onClick={onAdd} className="w-8 h-8 flex items-center justify-center rounded-full bg-white border border-gray-200 text-gray-400 hover:text-brand-lime hover:border-brand-lime transition-all"><Plus size={16} /></button>
-      </div>
-    </div>
-  );
-
-
-  const Toggle = ({ label, active, onChange }: { label: string, active: boolean, onChange: (val: boolean) => void }) => (
-    <div className="flex items-center justify-between p-4 bg-gray-50/50 rounded-xl border border-gray-100">
-      <span className="text-gray-700 font-bold">{label}</span>
-      <button
-        type="button"
-        onClick={() => onChange(!active)}
-        className={`relative w-12 h-6 rounded-full transition-colors duration-300 ${active ? 'bg-brand-lime' : 'bg-gray-200'}`}
-      >
-        <div className={`absolute top-1 left-1 w-4 h-4 bg-white rounded-full transition-transform duration-300 ${active ? 'translate-x-6' : 'translate-x-0'}`}></div>
-      </button>
-    </div>
-  );
 
 
   return (
@@ -293,9 +316,23 @@ const OnboardingWizard: React.FC<OnboardingWizardProps> = ({ onBack }) => {
                 <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2 text-right">מעולה. למי לשלוח את הצעת המחיר?</h2>
                 <p className="text-gray-500 text-right mb-10 font-normal text-sm md:text-base">השאירו פרטים ונחזור אליכם עם ניתוח מקצועי.</p>
                 <div className="space-y-5 mb-12">
-                  <div className="space-y-1.5"><label className="block text-right text-xs font-bold text-gray-400 mr-1">שם מלא</label><input type="text" placeholder="" required className="w-full px-6 py-4 bg-gray-50/50 border border-gray-100 rounded-xl text-gray-900 focus:outline-none focus:ring-2 focus:ring-brand-lime/10 focus:border-brand-lime transition-all text-right shadow-sm" value={formData.fullName} onChange={(e) => setFormData({ ...formData, fullName: e.target.value })} /></div>
-                  <div className="space-y-1.5"><label className="block text-right text-xs font-bold text-gray-400 mr-1">טלפון</label><input type="tel" required dir="ltr" className="w-full px-6 py-4 bg-gray-50/50 border border-gray-100 rounded-xl text-gray-900 focus:outline-none focus:ring-2 focus:ring-brand-lime/10 focus:border-brand-lime transition-all text-right shadow-sm" value={formData.phone} onChange={(e) => setFormData({ ...formData, phone: e.target.value })} /></div>
-                  <div className="space-y-1.5"><label className="block text-right text-xs font-bold text-gray-400 mr-1">אימייל</label><input type="email" required className="w-full px-6 py-4 bg-gray-50/50 border border-gray-100 rounded-xl text-gray-900 focus:outline-none focus:ring-2 focus:ring-brand-lime/10 focus:border-brand-lime transition-all text-right shadow-sm" value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} /></div>
+                  <div className="space-y-1.5"><label className="block text-right text-xs font-bold text-gray-400 mr-1">שם מלא <span className="text-red-500">*</span></label><input type="text" placeholder="" required className="w-full px-6 py-4 bg-gray-50/50 border border-gray-100 rounded-xl text-gray-900 focus:outline-none focus:ring-2 focus:ring-brand-lime/10 focus:border-brand-lime transition-all text-right shadow-sm" value={formData.fullName} onChange={(e) => setFormData({ ...formData, fullName: e.target.value })} /></div>
+                  <div className="space-y-1.5">
+                    <label className="block text-right text-xs font-bold text-gray-400 mr-1">טלפון <span className="text-red-500">*</span></label>
+                    <input
+                      type="tel"
+                      required
+                      dir="ltr"
+                      className={`w-full px-6 py-4 bg-gray-50/50 border ${phoneError ? 'border-red-500' : 'border-gray-100'} rounded-xl text-gray-900 focus:outline-none focus:ring-2 focus:ring-brand-lime/10 focus:border-brand-lime transition-all text-right shadow-sm`}
+                      value={formData.phone}
+                      onChange={(e) => {
+                        setFormData({ ...formData, phone: e.target.value });
+                        if (phoneError) setPhoneError('');
+                      }}
+                    />
+                    {phoneError && <p className="text-red-500 text-xs text-right mr-1">{phoneError}</p>}
+                  </div>
+                  <div className="space-y-1.5"><label className="block text-right text-xs font-bold text-gray-400 mr-1">אימייל</label><input type="email" className="w-full px-6 py-4 bg-gray-50/50 border border-gray-100 rounded-xl text-gray-900 focus:outline-none focus:ring-2 focus:ring-brand-lime/10 focus:border-brand-lime transition-all text-right shadow-sm" value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} /></div>
                 </div>
                 <button type="submit" disabled={loading} className="group relative w-full py-6 bg-gradient-to-br from-brand-lime to-brand-forest text-white text-xl font-extrabold rounded-xl shadow-lg shadow-brand-lime/10 hover:shadow-brand-lime/30 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 flex items-center justify-center gap-3 overflow-hidden">
                   <div className="absolute inset-0 bg-noise opacity-[0.25] mix-blend-overlay pointer-events-none"></div>
