@@ -16,13 +16,9 @@ const CTA: React.FC<CTAProps> = ({ onStart }) => {
         <h2 className="text-4xl md:text-6xl font-bold text-white mb-6 tracking-tight leading-[1.1] drop-shadow-lg">
           מוכנים לשדרג את חווית המגורים?
         </h2>
-        
-        <p className="text-xl md:text-2xl text-gray-200 mb-12 font-light max-w-3xl mx-auto leading-relaxed opacity-90">
-          ניהול מתקדם, שקוף ובלי כאבי ראש. הצטרפו למאות בניינים בתל אביב.
-        </p>
 
         <div className="flex justify-center">
-          <button 
+          <button
             onClick={onStart}
             className="group relative px-12 py-6 bg-[#A4D65E] hover:bg-[#b0e065] text-[#1A1A1A] text-xl font-bold rounded-full shadow-[0_0_30px_-5px_rgba(164,214,94,0.4)] hover:shadow-[0_0_50px_-10px_rgba(164,214,94,0.6)] transition-all duration-300 transform hover:-translate-y-1 flex items-center gap-3"
           >

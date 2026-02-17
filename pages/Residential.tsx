@@ -21,7 +21,7 @@ const Residential: React.FC<ResidentialProps> = ({ onStartAssessment }) => {
                         <div className="flex-1 space-y-6 z-10">
                             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
                                 ניהול מגורים <br />
-                                <span className="text-brand-lime">בסטנדרט של אפרו</span>
+                                <span className="text-brand-lime">בסטנדרט של אפּרו</span>
                             </h1>
                         </div>
 
