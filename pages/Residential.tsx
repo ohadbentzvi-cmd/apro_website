@@ -29,7 +29,7 @@ const Residential: React.FC<ResidentialProps> = ({ onStartAssessment }) => {
                         <div className="flex-1 relative w-full max-w-lg md:max-w-xl lg:max-w-2xl">
                             <div className="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white/10">
                                 <img
-                                    src="/residental.png"
+                                    src="/residential.jpg"
                                     alt="בניין מגורים בתל אביב"
                                     className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700"
                                 />

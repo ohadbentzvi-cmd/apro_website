@@ -18,7 +18,7 @@ const Header: React.FC = () => {
           <div className="relative w-10 h-10">
             <img src="/logo.svg" alt="APRO Logo" className="w-full h-full object-contain" />
           </div>
-          <img src="/company_name.png" alt="Apro Company Name" className="h-8 object-contain" />
+          <img src="/company_name_optimized.webp" alt="Apro Company Name" className="h-8 object-contain" />
         </Link>
 
         {/* Desktop Navigation */}
@@ -49,9 +49,7 @@ const Header: React.FC = () => {
           </div>
 
 
-          <button className="px-6 py-2.5 border border-brand-lime text-brand-forest font-semibold rounded-lg bg-transparent hover:bg-brand-lime hover:text-white transition-all duration-300">
-            כניסה לדיירים
-          </button>
+
         </nav>
 
         {/* Mobile Menu Button */}
@@ -91,10 +89,7 @@ const Header: React.FC = () => {
               {item}
             </a>
           ))}
-          <div className="h-px w-full bg-gray-100 my-2"></div>
-          <button className="w-full text-center py-3 border border-brand-lime text-brand-forest rounded-lg font-bold">
-            כניסה לדיירים
-          </button>
+
         </div>
       )}
     </header>

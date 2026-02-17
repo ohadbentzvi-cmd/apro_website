@@ -1,0 +1,53 @@
+/* Assistant Font - 200 */
+@font-face {
+    font-family: 'Assistant';
+    font-style: normal;
+    font-weight: 200;
+    font-display: swap;
+    src: url('/fonts/Assistant-200.ttf') format('truetype');
+}
+
+/* Assistant Font - 300 */
+@font-face {
+    font-family: 'Assistant';
+    font-style: normal;
+    font-weight: 300;
+    font-display: swap;
+    src: url('/fonts/Assistant-300.ttf') format('truetype');
+}
+
+/* Assistant Font - 400 */
+@font-face {
+    font-family: 'Assistant';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('/fonts/Assistant-400.ttf') format('truetype');
+}
+
+/* Assistant Font - 600 */
+@font-face {
+    font-family: 'Assistant';
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: url('/fonts/Assistant-600.ttf') format('truetype');
+}
+
+/* Assistant Font - 700 */
+@font-face {
+    font-family: 'Assistant';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url('/fonts/Assistant-700.ttf') format('truetype');
+}
+
+/* Assistant Font - 800 */
+@font-face {
+    font-family: 'Assistant';
+    font-style: normal;
+    font-weight: 800;
+    font-display: swap;
+    src: url('/fonts/Assistant-800.ttf') format('truetype');
+}

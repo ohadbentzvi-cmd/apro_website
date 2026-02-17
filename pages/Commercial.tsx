@@ -25,7 +25,7 @@ const Commercial: React.FC = () => {
                         <div className="flex-1 relative w-full max-w-lg md:max-w-xl lg:max-w-2xl">
                             <div className="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white/10">
                                 <img
-                                    src="/commercial hero.png"
+                                    src="/commercial_hero.jpg"
                                     alt="בניין משרדים בתל אביב - ניהול נכסים מסחריים"
                                     className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700"
                                 />
@@ -115,7 +115,7 @@ const Commercial: React.FC = () => {
                             <div className="flex-1 w-full max-w-md">
                                 <div className="rounded-3xl shadow-xl border border-gray-100 overflow-hidden">
                                     <img
-                                        src="/commercial.png"
+                                        src="/commercial.jpg"
                                         alt="טכנולוגיה בניהול נכסים"
                                         className="w-full h-auto object-cover"
                                     />

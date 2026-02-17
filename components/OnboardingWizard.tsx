@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { ArrowLeft, MapPin, CheckCircle, ChevronRight, Loader2, Home, Plus, Minus, Zap } from 'lucide-react';
+import Footer from './Footer';
 
 
 type Step = 'ADDRESS' | 'CONTACT' | 'TECHNICAL_AUDIT' | 'SUCCESS';
@@ -75,7 +76,8 @@ const OnboardingWizard: React.FC<OnboardingWizardProps> = ({ onBack }) => {
     floors: 4,
     apartments: 12,
     hasElevator: true,
-    hasRoboticParking: false
+    hasRoboticParking: false,
+    consent: false
   });
 
 
@@ -156,6 +158,12 @@ const OnboardingWizard: React.FC<OnboardingWizardProps> = ({ onBack }) => {
       setPhoneError('מספר טלפון לא תקין');
       return;
     }
+
+    if (!formData.consent) {
+      alert('יש לאשר את תנאי השימוש ומדיניות הפרטיות');
+      return;
+    }
+
     setPhoneError('');
     setLoading(true);
 
@@ -333,6 +341,19 @@ const OnboardingWizard: React.FC<OnboardingWizardProps> = ({ onBack }) => {
                     {phoneError && <p className="text-red-500 text-xs text-right mr-1">{phoneError}</p>}
                   </div>
                   <div className="space-y-1.5"><label className="block text-right text-xs font-bold text-gray-400 mr-1">אימייל</label><input type="email" className="w-full px-6 py-4 bg-gray-50/50 border border-gray-100 rounded-xl text-gray-900 focus:outline-none focus:ring-2 focus:ring-brand-lime/10 focus:border-brand-lime transition-all text-right shadow-sm" value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} /></div>
+
+                  <div className="flex items-start gap-3 mt-4">
+                    <input
+                      type="checkbox"
+                      required
+                      className="mt-0.5 accent-brand-lime w-4 h-4 shrink-0"
+                      checked={formData.consent}
+                      onChange={(e) => setFormData({ ...formData, consent: e.target.checked })}
+                    />
+                    <label className="text-right text-xs text-gray-500 leading-tight">
+                      אני מאשר/ת שקראתי והסכמתי <a href="/terms" target="_blank" className="text-brand-lime underline">לתנאי השימוש</a> ו<a href="/privacy" target="_blank" className="text-brand-lime underline">למדיניות הפרטיות</a> של האתר.
+                    </label>
+                  </div>
                 </div>
                 <button type="submit" disabled={loading} className="group relative w-full py-6 bg-gradient-to-br from-brand-lime to-brand-forest text-white text-xl font-extrabold rounded-xl shadow-lg shadow-brand-lime/10 hover:shadow-brand-lime/30 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 flex items-center justify-center gap-3 overflow-hidden">
                   <div className="absolute inset-0 bg-noise opacity-[0.25] mix-blend-overlay pointer-events-none"></div>
@@ -431,6 +452,7 @@ const OnboardingWizard: React.FC<OnboardingWizardProps> = ({ onBack }) => {
           </div>
         </div>
       </main>
+      <Footer />
     </div>
   );
 };

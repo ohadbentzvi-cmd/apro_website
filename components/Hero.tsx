@@ -10,9 +10,10 @@ const Hero: React.FC<HeroProps> = ({ onStart }) => {
       {/* Background Image with Premium High-Contrast Treatment */}
       <div className="absolute inset-0 z-0">
         <img
-          src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUzVgbSjtIMR-L4RYqh1fUCbTRs73t6oKVrLW6BxeIy8vWlUXQmZU3qxo90TC3W498Vis9bokTSUyBzYDPeWud8GHXF9jYgfW1JaJrTDdPBN5cpsxBu7SD3ySpnD4ryeDLk4goBS_UC2gATBBW-_XjG5DGf_DfYs4wyl6fwNDGuxvBlGooi5H1obMKAir7J-cA2WKY1cmZZGmmQdPcprAyXJnopx_m4uPrehFgE7rUhjSZtTvRiSt0F_mnRDqFudOCyz8EeIT9Akw"
+          src="/hero-bg.webp"
           alt="Modern Tel Aviv architectural detail"
           className="w-full h-full object-cover grayscale opacity-20 scale-105"
+          fetchPriority="high"
         />
         {/* Soft daylight overlay to ensure legibility and luxury feel */}
         <div className="absolute inset-0 bg-gradient-to-l from-[#FAFAFA] via-[#FAFAFA]/70 to-transparent"></div>

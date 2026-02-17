@@ -17,7 +17,7 @@ const Footer: React.FC = () => {
                 APRO
               </span>
             </div>
-            <p className="text-gray-400 text-sm leading-relaxed mb-6">
+            <p className="text-gray-300 text-sm leading-relaxed mb-6">
               שירותי ניהול נכסים המשלבים טכנולוגיה מתקדמת עם שירות אישי.
             </p>
           </div>
@@ -26,7 +26,7 @@ const Footer: React.FC = () => {
           <div>
             <h4 className="font-bold text-lg mb-4 text-gray-100">ניווט מהיר</h4>
             <ul className="space-y-2">
-              <li><Link to="/" className="text-gray-400 hover:text-brand-lime transition-colors">עמוד הבית</Link></li>
+              <li><Link to="/" className="text-gray-300 hover:text-brand-lime transition-colors">עמוד הבית</Link></li>
             </ul>
           </div>
 
@@ -34,15 +34,15 @@ const Footer: React.FC = () => {
           <div>
             <h4 className="font-bold text-lg mb-4 text-gray-100">שירותים</h4>
             <ul className="space-y-2">
-              <li><Link to="/residential" className="text-gray-400 hover:text-brand-lime transition-colors">ניהול בנייני מגורים</Link></li>
-              <li><Link to="/commercial" className="text-gray-400 hover:text-brand-lime transition-colors">ניהול נכסים מסחריים</Link></li>
+              <li><Link to="/residential" className="text-gray-300 hover:text-brand-lime transition-colors">ניהול בנייני מגורים</Link></li>
+              <li><Link to="/commercial" className="text-gray-300 hover:text-brand-lime transition-colors">ניהול נכסים מסחריים</Link></li>
             </ul>
           </div>
 
           {/* Contact Column */}
           <div>
             <h4 className="font-bold text-lg mb-4 text-gray-100">צרו קשר</h4>
-            <ul className="space-y-2 text-gray-400">
+            <ul className="space-y-2 text-gray-300">
               <li className="flex items-center gap-2">
                 <span>חברון 8, תל אביב</span>
               </li>
@@ -60,9 +60,9 @@ const Footer: React.FC = () => {
         <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
           <p>© 2026 APRO. כל הזכויות שמורות.</p>
           <div className="flex gap-6 mt-4 md:mt-0">
-            <a href="#" className="hover:text-white transition-colors">תנאי שימוש</a>
-            <a href="#" className="hover:text-white transition-colors">מדיניות פרטיות</a>
-            <a href="#" className="hover:text-white transition-colors">נגישות</a>
+            <Link to="/terms" className="hover:text-white transition-colors">תנאי שימוש</Link>
+            <Link to="/privacy" className="hover:text-white transition-colors">מדיניות פרטיות</Link>
+            <Link to="/accessibility" className="hover:text-white transition-colors">נגישות</Link>
           </div>
         </div>
       </div>
