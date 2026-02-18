@@ -7,6 +7,9 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     isLoading?: boolean;
     leftIcon?: React.ReactNode;
     rightIcon?: React.ReactNode;
+    href?: string;
+    target?: string;
+    rel?: string;
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -18,10 +21,11 @@ const Button: React.FC<ButtonProps> = ({
     rightIcon,
     className = '',
     disabled,
+    href,
     ...props
 }) => {
 
-    const baseStyles = "relative inline-flex items-center justify-center font-bold tracking-wide transition-all duration-300 transform active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed disabled:active:scale-100 group overflow-hidden";
+    const baseStyles = "relative inline-flex items-center justify-center font-bold tracking-wide transition-all duration-300 transform active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed disabled:active:scale-100 group overflow-hidden cursor-pointer gap-2";
 
     const variants = {
         primary: "bg-gradient-to-br from-brand-lime to-[#8bc34a] text-white shadow-lg shadow-brand-lime/20 hover:shadow-brand-lime/40 hover:scale-[1.02]",
@@ -40,26 +44,44 @@ const Button: React.FC<ButtonProps> = ({
     const variantStyles = variants[variant];
     const sizeStyles = sizes[size];
 
+    const content = (
+        <>
+            {/* Glossy overlay for Primary variant */}
+            {variant === 'primary' && (
+                <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            )}
+
+            {isLoading && <Loader2 className="w-5 h-5 animate-spin relative z-10" />}
+
+            {!isLoading && leftIcon && <span className="relative z-10">{leftIcon}</span>}
+
+            <span className="relative z-10 flex items-center gap-2">
+                {children}
+            </span>
+
+            {!isLoading && rightIcon && <span className="relative z-10">{rightIcon}</span>}
+        </>
+    );
+
+    if (href) {
+        return (
+            <a
+                href={href}
+                className={`${baseStyles} ${variantStyles} ${sizeStyles} ${className}`}
+                {...(props as React.AnchorHTMLAttributes<HTMLAnchorElement>)}
+            >
+                {content}
+            </a>
+        );
+    }
+
     return (
         <button
             className={`${baseStyles} ${variantStyles} ${sizeStyles} ${className}`}
             disabled={disabled || isLoading}
             {...props}
         >
-            {/* Glossy overlay for Primary variant */}
-            {variant === 'primary' && (
-                <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            )}
-
-            {isLoading && <Loader2 className="w-5 h-5 mr-2 animate-spin relative z-10" />}
-
-            {!isLoading && leftIcon && <span className="mr-2 relative z-10">{leftIcon}</span>}
-
-            <span className="relative z-10 flex items-center gap-2">
-                {children}
-            </span>
-
-            {!isLoading && rightIcon && <span className="ml-2 relative z-10">{rightIcon}</span>}
+            {content}
         </button>
     );
 };

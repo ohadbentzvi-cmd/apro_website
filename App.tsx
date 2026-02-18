@@ -8,6 +8,7 @@ import TermsOfUse from './pages/TermsOfUse';
 import AccessibilityStatement from './pages/AccessibilityStatement';
 import OnboardingWizard from './components/OnboardingWizard';
 import ScrollToTop from './components/ScrollToTop';
+import WhatsAppFloater from './components/WhatsAppFloater';
 
 const AppContent: React.FC = () => {
   const [wizardOpen, setWizardOpen] = useState(false);
@@ -34,6 +35,7 @@ const AppContent: React.FC = () => {
   return (
     <>
       <ScrollToTop />
+      <WhatsAppFloater />
       <div className="min-h-screen bg-[#FAFAFA] text-[#1A1A1A] font-sans overflow-x-hidden selection:bg-brand-lime selection:text-white animate-in fade-in duration-700">
         <Routes>
           <Route path="/" element={<Home onStartAssessment={startAssessment} />} />
