@@ -38,7 +38,7 @@ const AppContent: React.FC = () => {
         <Routes>
           <Route path="/" element={<Home onStartAssessment={startAssessment} />} />
           <Route path="/residential" element={<Residential onStartAssessment={startAssessment} />} />
-          <Route path="/commercial" element={<Commercial />} />
+          <Route path="/commercial" element={<Commercial onStartAssessment={startAssessment} />} />
           <Route path="/privacy" element={<PrivacyPolicy />} />
           <Route path="/terms" element={<TermsOfUse />} />
           <Route path="/accessibility" element={<AccessibilityStatement />} />

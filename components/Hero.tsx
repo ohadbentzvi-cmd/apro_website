@@ -1,4 +1,5 @@
 import React from 'react';
+import Button from './UI/Button';
 
 interface HeroProps {
   onStart?: () => void;
@@ -31,22 +32,22 @@ const Hero: React.FC<HeroProps> = ({ onStart }) => {
 
           {/* High-Authority Headline */}
           <h1 className="text-[2.5rem] sm:text-[3.5rem] md:text-[4.5rem] lg:text-[5.5rem] font-[800] text-[#1A1A1B] leading-[1.1] tracking-tight mb-8 font-sans selection:bg-brand-lime selection:text-white">
-            ניהול מבנים בסטנדרט אחר
+            אפּרו חברה לניהול בניינים
           </h1>
 
           <div className="text-xl md:text-2xl text-gray-600 mb-12 ml-auto max-w-3xl leading-relaxed">
-            <p className=" text-[#1A1A1B] mb-2">דיוק של הייטק. שקט של בית.</p>
+            <p className=" text-[#1A1A1B] mb-2">חברת ניהול מדור חדש, החריצות של פעם עם דיוק של הייטק</p>
           </div>
 
           {/* CTA Container: Lean Glassmorphism "Magnifying Glass" Style */}
           <div className="inline-flex flex-col sm:flex-row gap-4 p-2.5 rounded-3xl animate-in fade-in slide-in-from-bottom-6 duration-1000 delay-300">
-            <button
+            <Button
               onClick={onStart}
-              className="group relative px-12 py-5 bg-gradient-to-br from-brand-lime to-[#8bc34a] text-white text-xl font-bold rounded-[1.25rem] shadow-lg shadow-brand-lime/20 hover:shadow-brand-lime/40 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 whitespace-nowrap overflow-hidden"
+              variant="primary"
+              size="xl"
             >
-              <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              <span className="relative z-10">קבלו הצעת מחיר</span>
-            </button>
+              קבלו הצעת מחיר
+            </Button>
           </div>
         </div>
       </div>

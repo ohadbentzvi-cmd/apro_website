@@ -14,7 +14,7 @@ interface HomeProps {
 const Home: React.FC<HomeProps> = ({ onStartAssessment }) => {
     return (
         <>
-            <Header />
+            <Header onStart={onStartAssessment} />
             <main>
                 <Hero onStart={onStartAssessment} />
                 <Benefits />

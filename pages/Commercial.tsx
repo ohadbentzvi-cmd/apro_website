@@ -4,10 +4,14 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { Settings, CheckCircle, Smartphone } from 'lucide-react';
 
-const Commercial: React.FC = () => {
+interface CommercialProps {
+    onStartAssessment: () => void;
+}
+
+const Commercial: React.FC<CommercialProps> = ({ onStartAssessment }) => {
     return (
         <div className="min-h-screen flex flex-col bg-[#FAFAFA]">
-            <Header />
+            <Header onStart={onStartAssessment} />
             <main className="flex-grow pt-20">
                 {/* Hero Section */}
                 <section className="relative bg-brand-forest text-white overflow-hidden">

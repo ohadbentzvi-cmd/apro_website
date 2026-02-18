@@ -2,7 +2,7 @@ import React from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import CTA from '../components/CTA';
-import { MessageCircle, Shield, FileText } from 'lucide-react';
+import { MessageCircle, Shield, FileText, Users, Wrench, Cloud } from 'lucide-react';
 
 interface ResidentialProps {
     onStartAssessment: () => void;
@@ -11,7 +11,7 @@ interface ResidentialProps {
 const Residential: React.FC<ResidentialProps> = ({ onStartAssessment }) => {
     return (
         <div className="min-h-screen flex flex-col bg-[#FAFAFA]">
-            <Header />
+            <Header onStart={onStartAssessment} />
             <main className="flex-grow pt-20">
                 {/* Hero Section */}
                 <section className="relative bg-brand-forest text-white overflow-hidden">
@@ -47,7 +47,7 @@ const Residential: React.FC<ResidentialProps> = ({ onStartAssessment }) => {
                             </h2>
                             <div className="space-y-6">
                                 <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
-                                    ניהול בניין בתל אביב דורש מקצועיות, לא "טובות" משכנים. אנחנו מחליפים את המרדף אחרי תיקונים וגבייה בניהול חכם, רציני ושקוף.
+                                    ניהול בניין דורש מקצועיות, לא "טובות" משכנים. אנחנו מחליפים את המרדף אחרי תיקונים וגבייה בניהול חכם, רציני ושקוף.
                                 </p>
                                 <p className="text-lg md:text-xl text-gray-600 leading-relaxed font-medium">
                                     באפּרו אנחנו לא רק מתחזקים מבנה – אנחנו מנהלים קהילה. עם יושרה ללא פשרות ומערכות בקרה מתקדמות, אנחנו שומרים על ערך הנכס ועל יחסי השכנות שלכם.
@@ -91,6 +91,39 @@ const Residential: React.FC<ResidentialProps> = ({ onStartAssessment }) => {
                                 <h3 className="text-xl font-bold text-gray-900 mb-3">שקיפות מלאה</h3>
                                 <p className="text-gray-600 leading-relaxed">
                                     כל שקל, הצעת מחיר או ביקור טכנאי מתועדים ונגישים לכם. בלי "חורים שחורים", עם שקט נפשי מלא.
+                                </p>
+                            </div>
+
+                            {/* Card 4 */}
+                            <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 border-t-4 border-brand-forest group">
+                                <div className="w-14 h-14 bg-brand-forest/10 rounded-xl flex items-center justify-center mb-6 text-brand-forest group-hover:scale-110 transition-transform">
+                                    <Users className="w-8 h-8" />
+                                </div>
+                                <h3 className="text-xl font-bold text-gray-900 mb-3">נבחרת המקצוענים</h3>
+                                <p className="text-gray-600 leading-relaxed">
+                                    רשת קבלנים מורשים ואמינים שעברו סינון קפדני שלנו. אתם מקבלים שירות מאנשי המקצוע הטובים ביותר במחירים הוגנים, תחת הפיקוח והבקרה המלאה שלנו.
+                                </p>
+                            </div>
+
+                            {/* Card 5 */}
+                            <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 border-t-4 border-brand-lime group">
+                                <div className="w-14 h-14 bg-brand-forest/10 rounded-xl flex items-center justify-center mb-6 text-brand-forest group-hover:scale-110 transition-transform">
+                                    <Wrench className="w-8 h-8" />
+                                </div>
+                                <h3 className="text-xl font-bold text-gray-900 mb-3">תחזוקה מונעת</h3>
+                                <p className="text-gray-600 leading-relaxed">
+                                    לא מחכים לתקלות – מונעים אותן. יומן תחזוקה דיגיטלי לכל מערכות הבניין, ממשאבות ועד כיבוי אש. טיפול בזמן שומר על ערך הנכס ומונע הוצאות עתק מפתיעות.
+                                </p>
+                            </div>
+
+                            {/* Card 6 */}
+                            <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 border-t-4 border-brand-forest group">
+                                <div className="w-14 h-14 bg-brand-forest/10 rounded-xl flex items-center justify-center mb-6 text-brand-forest group-hover:scale-110 transition-transform">
+                                    <Cloud className="w-8 h-8" />
+                                </div>
+                                <h3 className="text-xl font-bold text-gray-900 mb-3">הזיכרון הדיגיטלי</h3>
+                                <p className="text-gray-600 leading-relaxed">
+                                    סוף לקלסרים. כל תוכנית, אישור והיסטוריית תיקונים נשמרים בענן של אפּרו. המידע זמין ונגיש תמיד, גם כשהוועד מתחלף. ניהול חכם ושקוף למאה ה-21.
                                 </p>
                             </div>
                         </div>
