@@ -16,7 +16,7 @@
   <link rel="preload" as="image" href="/hero-bg.webp" type="image/webp" fetchpriority="high">
 
   <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="/css/tailwind.css">
 
   <!-- Local Fonts: Assistant -->
   <link href="/fonts.css" rel="stylesheet">
@@ -26,25 +26,7 @@
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD90V6zelDgt1nLhCIBH-2XUbLyrwcJnm0&libraries=places&language=he&region=IL"
     async defer></script>
 
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['Assistant', 'sans-serif'],
-          },
-          colors: {
-            brand: {
-              lime: '#A4D65E',
-              forest: '#2E5936',
-              gray: '#F8F9FA',
-              dark: '#1A1A1A',
-            }
-          },
-        }
-      }
-    }
-  </script>
+
   <style>
     body {
       margin: 0;
