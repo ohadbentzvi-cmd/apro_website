@@ -6,6 +6,7 @@ import Commercial from './pages/Commercial';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfUse from './pages/TermsOfUse';
 import AccessibilityStatement from './pages/AccessibilityStatement';
+import ManagementLanding from './pages/ManagementLanding';
 import OnboardingWizard from './components/OnboardingWizard';
 import ScrollToTop from './components/ScrollToTop';
 import WhatsAppFloater from './components/WhatsAppFloater';
@@ -41,6 +42,7 @@ const AppContent: React.FC = () => {
           <Route path="/" element={<Home onStartAssessment={startAssessment} />} />
           <Route path="/residential" element={<Residential onStartAssessment={startAssessment} />} />
           <Route path="/commercial" element={<Commercial onStartAssessment={startAssessment} />} />
+          <Route path="/management" element={<ManagementLanding />} />
           <Route path="/privacy" element={<PrivacyPolicy />} />
           <Route path="/terms" element={<TermsOfUse />} />
           <Route path="/accessibility" element={<AccessibilityStatement />} />
