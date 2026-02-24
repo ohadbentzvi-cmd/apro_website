@@ -50,7 +50,7 @@ const Footer: React.FC = () => {
                 <span dir="ltr">055-5535891</span>
               </li>
               <li>
-                <a href="mailto:office@apro.co.il" className="hover:text-brand-lime transition-colors">office@apro.co.il</a>
+                <a href="mailto:office@aproholdings.com" className="hover:text-brand-lime transition-colors">office@aproholdings.com</a>
               </li>
             </ul>
           </div>

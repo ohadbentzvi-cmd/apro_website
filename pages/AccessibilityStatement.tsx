@@ -23,7 +23,7 @@ const AccessibilityStatement: React.FC = () => {
                         <p>
                             אם נתקלתם בקושי לגלוש באתר או שיש לכם הערה בנושא, נשמח לקבל פנייה ולטפל בנושא בהקדם:
                             <br />
-                            דוא״ל: <a href="mailto:office@apro.co.il" className="text-brand-lime font-medium hover:underline">office@apro.co.il</a>
+                            דוא״ל: <a href="mailto:office@aproholdings.com" className="text-brand-lime font-medium hover:underline">office@aproholdings.com</a>
                         </p>
                     </div>
                 </div>

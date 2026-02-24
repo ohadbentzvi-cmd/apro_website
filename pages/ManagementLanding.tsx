@@ -111,7 +111,7 @@ const ManagementLanding: React.FC = () => {
                                                 value={formData.name}
                                                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                                                 className="w-full h-full px-6 py-3 bg-white border border-gray-100 rounded-xl text-gray-900 focus:outline-none focus:ring-2 focus:ring-brand-lime/20 focus:border-brand-lime transition-all text-right shadow-sm placeholder:text-gray-400"
-                                                placeholder="שם"
+                                                placeholder="שם *"
                                             />
                                         </div>
 
@@ -127,7 +127,7 @@ const ManagementLanding: React.FC = () => {
                                                     if (phoneError) setPhoneError('');
                                                 }}
                                                 className={`w-full h-full px-6 py-3 bg-white border ${phoneError ? 'border-red-500' : 'border-gray-100'} rounded-xl text-gray-900 focus:outline-none focus:ring-2 focus:ring-brand-lime/20 focus:border-brand-lime transition-all text-right shadow-sm placeholder:text-gray-400`}
-                                                placeholder="טלפון"
+                                                placeholder="* טלפון"
                                             />
                                             {phoneError && <p className="absolute -bottom-5 right-1 text-red-500 text-xs">{phoneError}</p>}
                                         </div>
@@ -136,7 +136,6 @@ const ManagementLanding: React.FC = () => {
                                             <input
                                                 type="email"
                                                 id="email"
-                                                required
                                                 value={formData.email}
                                                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                                                 className="w-full h-full px-6 py-3 bg-white border border-gray-100 rounded-xl text-gray-900 focus:outline-none focus:ring-2 focus:ring-brand-lime/20 focus:border-brand-lime transition-all text-right shadow-sm placeholder:text-gray-400"
@@ -164,7 +163,7 @@ const ManagementLanding: React.FC = () => {
                 <section className="py-20 md:py-28 bg-white">
                     <div className="container mx-auto px-6 md:px-12">
                         <div className="text-center max-w-3xl mx-auto mb-16">
-                            <h2 className="text-3xl md:text-4xl font-bold text-brand-forest">
+                            <h2 className="text-3xl md:text-4xl font-bold text-gray-700">
                                 מה אנחנו עושים בעצם?
                             </h2>
                             <p className="mt-4 text-lg md:text-xl text-gray-600">
@@ -178,7 +177,7 @@ const ManagementLanding: React.FC = () => {
                                 <div className="absolute top-0 right-0 w-32 h-32 bg-brand-lime/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0 pointer-events-none"></div>
 
                                 <div className="relative z-10 flex-grow flex flex-col">
-                                    <div className="w-16 h-16 bg-brand-forest/5 rounded-2xl flex items-center justify-center mb-6 text-brand-forest group-hover:scale-110 group-hover:text-brand-lime group-hover:bg-brand-forest/10 transition-all duration-500 shadow-sm border border-brand-forest/10">
+                                    <div className="w-16 h-16 bg-brand-forest/5 rounded-2xl flex items-center justify-center mb-6 text-brand-lime group-hover:scale-110 group-hover:text-brand-lime group-hover:bg-brand-forest/10 transition-all duration-500 shadow-sm border border-brand-forest/10">
                                         <Shield className="w-8 h-8" />
                                     </div>
                                     <h3 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-brand-forest transition-colors">
@@ -210,7 +209,7 @@ const ManagementLanding: React.FC = () => {
                                 <div className="absolute top-0 right-0 w-32 h-32 bg-brand-lime/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0 pointer-events-none"></div>
 
                                 <div className="relative z-10 flex-grow flex flex-col">
-                                    <div className="w-16 h-16 bg-brand-forest/5 rounded-2xl flex items-center justify-center mb-6 text-brand-forest group-hover:scale-110 group-hover:text-brand-lime group-hover:bg-brand-forest/10 transition-all duration-500 shadow-sm border border-brand-forest/10">
+                                    <div className="w-16 h-16 bg-brand-forest/5 rounded-2xl flex items-center justify-center mb-6 text-brand-lime group-hover:scale-110 group-hover:text-brand-lime group-hover:bg-brand-forest/10 transition-all duration-500 shadow-sm border border-brand-forest/10">
                                         <Settings className="w-8 h-8" />
                                     </div>
                                     <h3 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-brand-forest transition-colors">
@@ -242,7 +241,7 @@ const ManagementLanding: React.FC = () => {
                                 <div className="absolute top-0 right-0 w-32 h-32 bg-brand-lime/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0 pointer-events-none"></div>
 
                                 <div className="relative z-10 flex-grow flex flex-col">
-                                    <div className="w-16 h-16 bg-brand-forest/5 rounded-2xl flex items-center justify-center mb-6 text-brand-forest group-hover:scale-110 group-hover:text-brand-lime group-hover:bg-brand-forest/10 transition-all duration-500 shadow-sm border border-brand-forest/10">
+                                    <div className="w-16 h-16 bg-brand-forest/5 rounded-2xl flex items-center justify-center mb-6 text-brand-lime group-hover:scale-110 group-hover:text-brand-lime group-hover:bg-brand-forest/10 transition-all duration-500 shadow-sm border border-brand-forest/10">
                                         <Wrench className="w-8 h-8" />
                                     </div>
                                     <h3 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-brand-forest transition-colors">
